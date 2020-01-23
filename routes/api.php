@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('register', 'user_controller@register');
+Route::post('login', 'user_controller@login');
+Route::get('user', 'user_controller@getAuthenticatedUser')->middleware('jwt.verify');
